@@ -1,0 +1,41 @@
+﻿<Window x:Class="RandPick.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RandPick"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d"
+        Title="学号抽选 by fishroom v1.0" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="CongratulateText" Visibility="Collapsed" Text="恭喜" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="48" FontFamily="Source Han Sans"/>
+            <TextBlock Text="{Binding ExtractionResult,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="72" FontFamily="Source Han Sans"/>
+            <Border Style="{StaticResource BorderHorizontallySplitter}"/>
+            <TextBlock x:Name="WinText" Visibility="Collapsed" Text="中奖🎉" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="48" FontFamily="Source Han Sans"/>
+        </StackPanel>
+        
+        <Grid Grid.Row="1" Width="797" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Width="120" HorizontalAlignment="Center">
+                <Button Content="抽六班（x5）" Style="{StaticResource ButtonPrimary}" Click="Class_Six_Rand_5" Width="120" Height="30" Margin="0,10,0,5" hc:BorderElement.CornerRadius="7" FontFamily="Source Han Sans HC Heavy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Border Style="{StaticResource BorderHorizontallySplitter}"/>
+                <Button Content="抽六班（x1）" Style="{StaticResource ButtonPrimary}" Click="Class_Six_Rand_1" Width="120" Height="30" hc:BorderElement.CornerRadius="7" FontFamily="Source Han Sans HC Heavy" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Width="120" HorizontalAlignment="Center">
+                <Button Content="抽五班（x5）" Style="{StaticResource ButtonPrimary}" Click="Class_Five_Rand_5" Width="120" Height="30" Margin="0,10,0,5" hc:BorderElement.CornerRadius="7" FontFamily="Source Han Sans HC Heavy" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Border Style="{StaticResource BorderHorizontallySplitter}"/>
+                <Button Content="抽五班（x1）" Style="{StaticResource ButtonPrimary}" Click="Class_Five_Rand_1" Width="120" Height="30" hc:BorderElement.CornerRadius="7" FontFamily="Source Han Sans HC Heavy" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
